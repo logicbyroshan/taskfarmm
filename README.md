@@ -1,167 +1,112 @@
 <div align="center">
 
-# ⚡ TaskFarmm
+```
+  ████████╗ █████╗ ███████╗██╗  ██╗███████╗ █████╗ ██████╗ ███╗   ███╗███╗   ███╗
+  ╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝██╔════╝██╔══██╗██╔══██╗████╗ ████║████╗ ████║
+     ██║   ███████║███████╗█████═╝ █████╗  ███████║██████╔╝██╔████╔██║██╔████╔██║
+     ██║   ██╔══██║╚════██║██╔═██╗ ██╔══╝  ██╔══██║██╔══██╗██║╚██╔╝██║██║╚██╔╝██║
+     ██║   ██║  ██║███████║██║ ╚██╗██║     ██║  ██║██║  ██║██║ ╚═╝ ██║██║ ╚═╝ ██║
+     ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝     ╚═╝
+```
 
-### *Next-Generation Intelligent Task & Project Orchestration Platform*
+### *Ultra-Fast • Pure OLED Black • Voice-Automated • Zero-Clutter*
 
-[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Django](https://img.shields.io/badge/Django-5.2+-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/)
-[![Voice AI](https://img.shields.io/badge/Voice_Automation-Integrated-2563eb?style=for-the-badge&logo=audio-technica&logoColor=white)](#-new-feature-spotlight-voice-automated-task-management)
-[![OpenHinglish](https://img.shields.io/badge/OpenHinglish-NLP_Engine-10b981?style=for-the-badge)](https://github.com/shankarmishra/openhinglish)
-[![Theme](https://img.shields.io/badge/Theme-Pure_OLED_Black-000000?style=for-the-badge&logo=darkreader&logoColor=white)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-f59e0b.svg?style=for-the-badge)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=for-the-badge)](CONTRIBUTING.md)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Django 5.2](https://img.shields.io/badge/Django-5.2+-092E20?style=flat-square&logo=django&logoColor=white)](https://www.djangoproject.com/)
+[![Voice Automation](https://img.shields.io/badge/🎙️_Voice_AI-Automated_Tasks-2563eb?style=flat-square)](#-voice-automated-task-management)
+[![OpenHinglish](https://img.shields.io/badge/OpenHinglish-NLP_Engine-10b981?style=flat-square)](https://github.com/shankarmishra/openhinglish)
+[![Theme: OLED Black](https://img.shields.io/badge/Theme-Pure_OLED_Black-000000?style=flat-square)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-f59e0b.svg?style=flat-square)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
-<br>
+---
 
-<p align="center">
-  <b>TaskFarmm</b> is a lightning-fast, visually stunning, OLED pure-black task and project orchestration system built with <b>Django 5</b>, <b>Voice AI Automation</b>, <b>OpenHinglish NLP</b>, <b>Alpine.js / HTMX</b>, and <b>HTML5 Canvas</b>. Engineered for seamless productivity, real-time client-side sync, and zero interface bloat.
-</p>
-
-[🎙️ Voice Automation](#-new-feature-spotlight-voice-automated-task-management) • [✨ Key Features](#-key-features) • [🏛️ Architecture](#-system-architecture) • [🚀 Quick Start](#-quick-start) • [📡 API Reference](API.md) • [🚢 Deployment](SETUP.md) • [🤝 Contributing](CONTRIBUTING.md)
+[🎙️ Voice Automation](#-voice-automated-task-management) • [⚡ Feature Matrix](#-feature-matrix) • [🔄 Workflow Graph](#-kanban-workflow-lifecycle) • [🏛️ Architecture](#-system-architecture) • [🚀 Quick Start](#-quickstart-in-60-seconds) • [📡 API Reference](API.md)
 
 </div>
 
 ---
 
-## 🎙️ NEW FEATURE SPOTLIGHT: Voice-Automated Task Management
+## 🎙️ Voice-Automated Task Management
 
 > [!IMPORTANT]
-> **TaskFarmm introduces Voice-Automated Task Management** — transform natural speech into structured tasks, automatic priority ratings, due dates, and board assignments in real time!
+> **Hands-Free Speech-to-Task Orchestration**: Dictate tasks naturally in **English** or **Roman Hindi / Hinglish**. TaskFarmm automatically parses the title, extracts due dates, assigns priority tags, and places cards into your active board instantly!
+
+### ⚡ Voice Pipeline Flow
 
 ```mermaid
-graph LR
-    A[🎙️ Voice Command] --> B[Web Speech & Audio Pipeline]
-    B --> C[OpenHinglish NLP Engine]
-    C --> D{Intent & Entity Parser}
-    D -->|Title & Desc| E[Task Entity]
-    D -->|Priority / Dates| E
-    D -->|Project & Column| E
-    E --> F[⚡ Instant Live Board DOM Sync]
+flowchart LR
+    subgraph Speech["1. Speech Input"]
+        V[🎙️ Spoken Command]
+    end
+    subgraph NLP["2. OpenHinglish NLP Engine"]
+        T[Text Normalization] --> E[Intent & Entity Extractor]
+    end
+    subgraph Board["3. Instant DOM Sync"]
+        C[Create Task Card] --> P[Priority / Date Routing]
+    end
+    V --> T
+    E --> C
 ```
 
-### 🌟 Voice Automation Highlights
+### 🗣️ Example Voice Commands & Auto-Parsing
 
-| Capability | How It Works | Example Voice Command |
-| :--- | :--- | :--- |
-| **🗣️ Natural Voice-to-Task** | Dictate new tasks naturally without touching the keyboard. | *"Create a task: Review API security headers by tomorrow 5 PM with high priority"* |
-| **🌐 Bilingual NLP Engine** | Seamlessly parses English and Roman Hindi / Hinglish colloquial phrases. | *"Kal tak payment gateway ka bug fix krna hai high priority me"* |
-| **⚡ Intelligent Entity Parsing** | Extracts dates, times, priority levels, and category assignments automatically. | Extracts: `title`, `priority='high'`, `due_date='tomorrow'`, `category='Backend'` |
-| **📋 Hands-Free Kanban Actions** | Move cards across columns, toggle completion, or trigger filters via speech. | *"Move Figma tokens task to Done column"* |
+| Voice Dictation (Speech) | Normalized Transcript | Extracted Attributes | Resulting Action |
+| :--- | :--- | :--- | :--- |
+| 💬 *"Review security headers by tomorrow 5 PM with high priority"* | `Review security headers` | 🔴 **High** • 📅 Tomorrow 5 PM | ✨ Task created in **To Do** |
+| 💬 *"Kal tak payment gateway bug fix krna hai urgent"* | `Payment gateway bug fix karna hai` | 🔴 **High** • 📅 Tomorrow | ✨ Task created in **To Do** |
+| 💬 *"Move design tokens task to completed column"* | `Move design tokens to done` | 🏷️ `Design System` • ✅ Done | ⚡ Card moved to **Done** |
 
 ---
 
-## ✨ Key Features Matrix
+## ⚡ Feature Matrix
 
-### 1. 📋 Agile Kanban & Project Workspaces
-<table>
-  <tr>
-    <td width="50%">
-      <h4>⚡ Smart & Super Workflow Templates</h4>
-      <ul>
-        <li><b>Smart Board</b>: 4 essential stages (<i>To Do, In Progress, On Hold, Done</i>).</li>
-        <li><b>Super Board</b>: 6 advanced stages (<i>Backlog, To Do, In Progress, On Hold, Done, Canceled</i>).</li>
-        <li>Custom project color accents and board templates.</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <h4>🖱️ Live Drag-and-Drop & Instant SPA</h4>
-      <ul>
-        <li>Smooth HTML5 drag-and-drop card orchestration.</li>
-        <li>Zero page reload updates across columns with instant counter updates.</li>
-        <li>Click-to-edit project headers and column names.</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+| Feature | Description | Status |
+| :--- | :--- | :---: |
+| 🎙️ **Voice Automation** | Hands-free natural speech task creation with multi-lingual NLP parsing | `⚡ LIVE` |
+| 📋 **6-Column Kanban** | Drag-and-drop board with Smart (4-col) & Super (6-col) templates | `⚡ LIVE` |
+| 🗂️ **Trello-Style Modal** | Full-width header, file attachments, and **Ctrl+V clipboard paste** | `⚡ LIVE` |
+| 🌐 **OpenHinglish NLP** | Real-time typo correction (`krna` ➔ `karna`, `tmrw` ➔ `tomorrow`) | `⚡ LIVE` |
+| 👥 **Team RBAC (99 Users)** | Owner, Admin, Member, Viewer roles with granular workspace access | `⚡ LIVE` |
+| 📬 **Notification Queue** | Background async queue with exponential backoff & OLED email templates | `⚡ LIVE` |
+| 🔑 **Google OAuth 2.0** | RFC 6749 single sign-on with automatic workspace provisioning | `⚡ LIVE` |
+| 🌊 **Ambient Wave Canvas** | GPU-accelerated 60fps HTML5 canvas responding to mouse ripple | `⚡ LIVE` |
 
-### 2. 🗂️ Advanced Trello-Style Task Modal
-<table>
-  <tr>
-    <td width="50%">
-      <h4>📎 Attachments & Clipboard Pasting</h4>
-      <ul>
-        <li>Upload PDFs, spreadsheets, Word docs, and images with inline previews.</li>
-        <li><b>Direct <code>Ctrl + V</code> paste</b> screenshots directly from clipboard into tasks and comments.</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <h4>✅ Dynamic Checklists & Activity Feed</h4>
-      <ul>
-        <li>Interactive subtask checklists with auto-calculated progress percentage bars.</li>
-        <li>Real-time comment feed with author avatars, edit, and delete support.</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+<details>
+<summary><b>🔍 Expand: Deep Dive on Core Capabilities</b></summary>
+<br>
 
-### 3. 🌐 OpenHinglish Spell-Check & AI Assistant
-<table>
-  <tr>
-    <td width="50%">
-      <h4>🔤 OpenHinglish Text Normalization</h4>
-      <ul>
-        <li>Normalizes shorthand (<code>tmrw</code> ➔ <code>tomorrow</code>, <code>msg</code> ➔ <code>message</code>, <code>intv</code> ➔ <code>interview</code>).</li>
-        <li>Autocorrects typos (<code>krna</code> ➔ <code>karna</code>, <code>proejct</code> ➔ <code>project</code>).</li>
-        <li>Interactive live tester in Settings with instant toggle.</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <h4>🤖 ChatGPT-Style AI Workspace</h4>
-      <ul>
-        <li>Dedicated AI Assistant side drawer and workspace.</li>
-        <li>Generates full project task breakdowns with 1-click creation into your active board.</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+### 1. 🗂️ Rich Trello Task Modal
+- **Direct Clipboard Paste (`Ctrl + V`)**: Instantly paste screenshots directly into task descriptions or comments.
+- **Dynamic Checklists**: Subtasks with auto-calculating `0-100%` progress indicator bar.
+- **Attachments Engine**: Drag-and-drop document upload with inline thumbnail previews and direct downloads.
 
-### 4. 👥 Enterprise Security, Multi-User Teams & Notifications
-<table>
-  <tr>
-    <td width="50%">
-      <h4>🔐 Multi-User Roles & Google SSO</h4>
-      <ul>
-        <li><b>Role-Based Access Control (RBAC)</b>: Account Owner, Admin, Member, Viewer roles.</li>
-        <li>Support for up to 99 sub-users per workspace.</li>
-        <li>RFC 6749 compliant Google OAuth 2.0 single sign-on.</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <h4>📬 Reliable Notification Delivery Queue</h4>
-      <ul>
-        <li>Asynchronous notification queue with exponential backoff retries (<code>30s</code>, <code>2m</code>, <code>8m</code>, <code>30m</code>).</li>
-        <li>Topbar notification bell hub with real-time unread counter.</li>
-        <li>6 responsive pitch-black OLED email templates.</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+### 2. 🔤 OpenHinglish Spell Engine
+- Normalizes shorthand (`msg` ➔ `message`, `intv` ➔ `interview`, `tmrw` ➔ `tomorrow`).
+- Autocorrects transliterated Roman Hindi (`krna` ➔ `karna`, `hoga` ➔ `hoga`, `proejct` ➔ `project`).
+- Interactive live tester in Settings.
+
+### 3. 👥 Sub-User Account Management
+- Create up to **99 team member accounts** under a single owner.
+- Role-based permissions preventing unauthorized task deletion or board mutation.
+
+</details>
 
 ---
 
-## 🎨 Pure OLED Black Design System
+## 🔄 Kanban Workflow Lifecycle
 
-TaskFarmm is built with an unapologetic **Pitch-Black OLED (`#000000`)** philosophy:
-
+```mermaid
+stateDiagram-v2
+    [*] --> Backlog: Voice / AI / Manual
+    Backlog --> ToDo: Prioritized
+    ToDo --> InProgress: Start Working
+    InProgress --> OnHold: Blocked
+    OnHold --> InProgress: Unblocked
+    InProgress --> Done: Completed
+    ToDo --> Canceled: Dropped
+    Done --> [*]
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  🌌 Ambient Wave Canvas (Interactive 60fps HTML5 Canvas)     │
-│  ┌───────────────────────────────────────────────────────┐  │
-│  │  🖤 Pure Black Canvas Surface (#000000)                │  │
-│  │  ┌──────────────────┐  ┌───────────────────────────┐  │  │
-│  │  │  Sidebar (Pills) │  │  Kanban Board (Zero Gaps) │  │  │
-│  │  │  • Projects      │  │  [Backlog] [To Do] [Done] │  │  │
-│  │  │  • Voice Input   │  │  ┌───────┐ ┌────┐ ┌─────┐ │  │  │
-│  │  │  • AI Assistant  │  │  │ Card  │ │Card│ │Card │ │  │  │
-│  │  └──────────────────┘  └───────────────────────────┘  │  │
-│  └───────────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────┘
-```
-
-- **Zero Vertical Page Scrollbars**: Ultra-clean viewport-contained experience with smooth micro-animations.
-- **Dynamic Wave Canvas**: GPU-accelerated cool-gradient wave crests (Teal, Sapphire, Violet) responding to mouse ripple.
-- **Curated High-Contrast Accents**: Tailored HSL status pills, sleek borders (`#27272a`), and zero muddy gray backgrounds.
 
 ---
 
@@ -169,124 +114,31 @@ TaskFarmm is built with an unapologetic **Pitch-Black OLED (`#000000`)** philoso
 
 ```mermaid
 graph TD
-    subgraph Client["Client Interface (Native Web Standards)"]
-        UI["Pure OLED Dark Theme\n(Vanilla CSS)"]
-        Canvas["Ambient Wave Engine\n(60fps Canvas)"]
-        Voice["Voice Automation Controller\n(Speech API & Audio)"]
-        SPA["Live SPA Sync\n(Alpine.js & HTMX)"]
+    subgraph Frontend["🎨 Pure OLED Dark Client Layer"]
+        UI["Vanilla Modern CSS (Zero Scrollbar)"]
+        Canvas["Ambient Wave Engine (60fps Canvas)"]
+        Voice["Voice Automation Controller (Speech API)"]
+        DOM["Live SPA Sync (Alpine.js & HTMX)"]
     end
 
-    subgraph Backend["Django 5.2 Application Layer"]
-        Views["Views & ViewSets\n(REST API v1 + Web Views)"]
-        Services["Domain Services\n(Task, Project, User, Notification)"]
-        NLP["OpenHinglish NLP Engine\n(Spell Correction & Voice Parsing)"]
-        Auth["Authentication & RBAC\n(JWT, Session, Google OAuth 2.0)"]
+    subgraph Backend["⚙️ Django 5.2 Application Layer"]
+        API["REST API v1 (JWT Auth & DRF)"]
+        Services["Domain Services (Task, Project, User, Notification)"]
+        NLP["OpenHinglish NLP Pipeline (Spell & Voice Parsing)"]
     end
 
-    subgraph Data["Persistence & Workers"]
-        DB[("Database\n(PostgreSQL / SQLite)")]
-        Static["Static Assets\n(WhiteNoise Compressed)"]
-        Queue["Async Notification Queue\n(Exponential Backoff Worker)"]
+    subgraph Storage["💾 Persistence & Workers"]
+        DB[("PostgreSQL / SQLite")]
+        Queue["Async Notification Queue (Exponential Backoff)"]
     end
 
-    Client --> Backend
-    Backend --> Data
+    Frontend --> Backend
+    Backend --> Storage
 ```
 
----
-
-## 🚀 Quick Start
-
-### 📋 Prerequisites
-- **Python**: 3.11 or higher
-- **Git**: 2.30+
-- **Pip**: Latest version
-
-### ⚙️ Step-by-Step Installation
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/logicbyroshan/taskfarmm-tasks-management.git
-cd taskfarmm-tasks-management
-
-# 2. Create and activate a virtual environment
-# On Linux / macOS:
-python3 -m venv venv
-source venv/bin/activate
-# On Windows (PowerShell):
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Initialize environment variables
-cp .env.example .env
-
-# 5. Run database migrations & collect static files
-python manage.py migrate
-python manage.py collectstatic --noinput
-
-# 6. Verify with automated test suite
-python manage.py test
-
-# 7. Start the development server
-python manage.py runserver
-```
-
-Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
-
----
-
-## 📡 REST API v1 Quick Reference
-
-TaskFarmm exposes a full RESTful API with JWT authentication. See [`API.md`](API.md) for full documentation.
-
-| Method | Endpoint | Description | Auth Required |
-| :--- | :--- | :--- | :---: |
-| `POST` | `/api/v1/auth/token/` | Obtain JWT token pair (access & refresh) | ❌ |
-| `POST` | `/api/v1/auth/token/refresh/` | Refresh expired access token | ❌ |
-| `GET` | `/api/v1/tasks/` | List & filter tasks (search, status, priority, project) | ✅ |
-| `POST` | `/api/v1/tasks/` | Create a new task with checklist & tags | ✅ |
-| `GET` | `/api/v1/tasks/{id}/` | Retrieve task details, attachments & comments | ✅ |
-| `PATCH` | `/api/v1/tasks/{id}/` | Update task status, priority, or column position | ✅ |
-| `POST` | `/api/v1/voice/parse/` | Parse natural voice input into structured task payload | ✅ |
-| `GET` | `/api/v1/categories/` | List user's project workspaces & metrics | ✅ |
-| `GET` | `/api/v1/notifications/` | List user notifications & unread counter | ✅ |
-
----
-
-## 🚢 Production Deployment
-
-TaskFarmm is production-ready for single-click cloud deploys and VPS configurations. Full deployment instructions are in [`SETUP.md`](SETUP.md).
-
-### ☁️ Cloud Platforms
-
-| Platform | Configuration | Guide |
-| :--- | :--- | :--- |
-| **Render** | Automatic detection via `requirements.txt` & `Procfile` | [Render Guide](SETUP.md#deploying-to-render) |
-| **Railway** | Native PostgreSQL attachment & Gunicorn runner | [Railway Guide](SETUP.md#deploying-to-railway) |
-| **Ubuntu VPS** | Nginx + Gunicorn + Systemd + SSL Certbot | [VPS Guide](SETUP.md#-3-production-vps-deployment) |
-
----
-
-## 🧪 Testing & Quality Assurance
-
-TaskFarmm features an exhaustive automated test suite covering models, services, views, REST API endpoints, OpenHinglish text normalization, and role permissions.
-
-```bash
-# Run all 89 test cases
-python manage.py test
-```
-
-```
-Ran 89 tests in 116.9s ... OK
-System check identified no issues (0 silenced).
-```
-
----
-
-## 📁 Project Structure
+<details>
+<summary><b>📂 Expand: Complete Repository Directory Tree</b></summary>
+<br>
 
 ```
 TaskFarmm/
@@ -305,28 +157,88 @@ TaskFarmm/
 └── CONTRIBUTING.md      # Guidelines for open-source contributors
 ```
 
+</details>
+
 ---
 
-## 🤝 Contributing
+## 🚀 Quickstart in 60 Seconds
 
-We welcome contributions from developers worldwide! Whether fixing bugs, improving docs, or proposing new features:
+```bash
+# 1. Clone & enter repository
+git clone https://github.com/logicbyroshan/taskfarmm-tasks-management.git && cd taskfarmm-tasks-management
 
-1. **Fork** the repository.
-2. **Create a branch**: `git checkout -b feature/amazing-feature`.
-3. **Commit changes**: `git commit -m "feat: add voice command shortcut"`.
-4. **Push to branch**: `git push origin feature/amazing-feature`.
-5. **Open a Pull Request**.
+# 2. Setup virtual environment & dependencies
+python -m venv venv && source venv/bin/activate  # Windows: .\venv\Scripts\activate
+pip install -r requirements.txt
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) and our [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) for full details.
+# 3. Setup environment & migrate
+cp .env.example .env && python manage.py migrate && python manage.py collectstatic --noinput
+
+# 4. Launch dev server
+python manage.py runserver
+```
+
+🌐 Open **[http://127.0.0.1:8000](http://127.0.0.1:8000)** in your browser.
+
+<details>
+<summary><b>🚢 Expand: Cloud Deployment Options (1-Click)</b></summary>
+<br>
+
+| Platform | Type | Quick Setup |
+| :--- | :--- | :--- |
+| **Render** | Web Service | Auto-detected via `Procfile` & `requirements.txt` ([Guide](SETUP.md#deploying-to-render)) |
+| **Railway** | Web Service | Native PostgreSQL attachment & Gunicorn ([Guide](SETUP.md#deploying-to-railway)) |
+| **Ubuntu VPS** | Nginx + Gunicorn | Production Systemd service + SSL Certbot ([Guide](SETUP.md#-3-production-vps-deployment)) |
+
+</details>
+
+---
+
+## 🧪 Testing & Quality Benchmark
+
+```bash
+python manage.py test
+```
+
+```
+Ran 89 tests in 116.9s ... OK
+System check identified no issues (0 silenced).
+```
+
+---
+
+## 📡 REST API Quick Glance
+
+| Method | Endpoint | Description | Auth |
+| :--- | :--- | :--- | :---: |
+| `POST` | `/api/v1/auth/token/` | Obtain JWT token pair | ❌ |
+| `GET` | `/api/v1/tasks/` | List & filter tasks (search, status, priority) | ✅ |
+| `POST` | `/api/v1/tasks/` | Create task with checklist & tags | ✅ |
+| `POST` | `/api/v1/voice/parse/` | Parse voice speech into task payload | ✅ |
+| `GET` | `/api/v1/categories/` | List project workspaces & metrics | ✅ |
+| `GET` | `/api/v1/notifications/` | In-app notification hub & unread count | ✅ |
+
+*For complete payload examples and schemas, read [`API.md`](API.md).*
+
+---
+
+## 🤝 Contributing & Community
+
+Contributions are what make open source amazing!
+
+1. 🍴 **Fork** the repository
+2. 🌿 **Branch**: `git checkout -b feature/awesome-feature`
+3. 💾 **Commit**: `git commit -m "feat: add awesome feature"`
+4. 🚀 **Push & PR**: `git push origin feature/awesome-feature`
+
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) for full guidelines.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
----
+This project is licensed under the **MIT License** — see [`LICENSE`](LICENSE) for details.
 
 <div align="center">
-  <sub>Engineered with ⚡ by <b><a href="https://github.com/logicbyroshan">Roshan Damor (LogicByRoshan)</a></b> and open-source contributors.</sub>
+  <sub>Built with ⚡ by <b><a href="https://github.com/logicbyroshan">Roshan Damor (LogicByRoshan)</a></b> and community contributors.</sub>
 </div>
