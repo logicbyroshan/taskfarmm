@@ -751,6 +751,8 @@ function setupCustomDropdowns() {
 
                 // Close dropdown
                 wrapper.classList.remove('open');
+                const parentContainer = wrapper.closest('.page-header-bar, .filter-bar, .kanban-header-bar, .category-card, .task-card, .kanban-card');
+                if (parentContainer) parentContainer.classList.remove('has-open-dropdown');
 
                 // Dispatch native change event for forms & listeners
                 select.dispatchEvent(new Event('change', { bubbles: true }));
@@ -769,10 +771,14 @@ function setupCustomDropdowns() {
             // Close other open dropdowns
             document.querySelectorAll('.custom-select-wrapper.open').forEach(other => {
                 other.classList.remove('open');
+                const p = other.closest('.page-header-bar, .filter-bar, .kanban-header-bar, .category-card, .task-card, .kanban-card');
+                if (p) p.classList.remove('has-open-dropdown');
             });
 
             if (!isCurrentlyOpen) {
                 wrapper.classList.add('open');
+                const p = wrapper.closest('.page-header-bar, .filter-bar, .kanban-header-bar, .category-card, .task-card, .kanban-card');
+                if (p) p.classList.add('has-open-dropdown');
             }
         });
 
@@ -784,6 +790,8 @@ function setupCustomDropdowns() {
     document.addEventListener('click', () => {
         document.querySelectorAll('.custom-select-wrapper.open').forEach(wrapper => {
             wrapper.classList.remove('open');
+            const p = wrapper.closest('.page-header-bar, .filter-bar, .kanban-header-bar, .category-card, .task-card, .kanban-card');
+            if (p) p.classList.remove('has-open-dropdown');
         });
     });
 
@@ -792,6 +800,8 @@ function setupCustomDropdowns() {
         if (e.key === 'Escape') {
             document.querySelectorAll('.custom-select-wrapper.open').forEach(wrapper => {
                 wrapper.classList.remove('open');
+                const p = wrapper.closest('.page-header-bar, .filter-bar, .kanban-header-bar, .category-card, .task-card, .kanban-card');
+                if (p) p.classList.remove('has-open-dropdown');
             });
         }
     });

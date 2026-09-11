@@ -16,7 +16,13 @@ MY TASKS PAGE STYLES
     margin-bottom: 16px;
     flex-wrap: wrap;
     position: relative;
-    z-index: 40;
+    z-index: 50;
+}
+
+.filter-bar:has(.custom-select-wrapper.open),
+.filter-bar:focus-within,
+.filter-bar.has-open-dropdown {
+    z-index: 1000 !important;
 }
 
 .filter-options {
@@ -60,16 +66,18 @@ MY TASKS PAGE STYLES
     transition: var(--transition);
     border-left: 4px solid var(--accent-color);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     box-sizing: border-box;
+    z-index: 1;
 }
 
-.my-task-card:hover, .my-task-card:focus {
+.my-task-card:hover, .my-task-card:focus, .my-task-card:focus-within {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
     border-color: rgba(59, 130, 246, 0.4);
     outline: none;
     background: #060608;
+    z-index: 25;
 }
 
 /* Priority Indicator Borders */

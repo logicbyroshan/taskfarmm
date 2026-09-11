@@ -17,6 +17,8 @@ TASKFARMM MAIN COMPONENT & LAYOUT STYLES
     height: 56px;
     box-sizing: border-box;
     flex-shrink: 0;
+    position: relative;
+    z-index: 1100;
 }
 
 .navbar-left {
@@ -816,10 +818,11 @@ select option {
     position: relative;
     display: inline-block;
     min-width: 130px;
-    z-index: 20;
+    z-index: 50;
 }
 
-.custom-select-wrapper.open {
+.custom-select-wrapper.open,
+.custom-select-wrapper:focus-within {
     z-index: 99999 !important;
 }
 
@@ -1349,10 +1352,11 @@ select option {
 /* Custom Dropdown Z-Index & Overflow Fixes */
 .custom-select-wrapper {
     position: relative;
-    z-index: 20;
+    z-index: 50;
 }
 
-.custom-select-wrapper.open {
+.custom-select-wrapper.open,
+.custom-select-wrapper:focus-within {
     z-index: 99999 !important;
 }
 
@@ -3016,6 +3020,12 @@ select.form-control {
     z-index: 50;
 }
 
+.page-header-bar:has(.custom-select-wrapper.open),
+.page-header-bar:focus-within,
+.page-header-bar.has-open-dropdown {
+    z-index: 1000 !important;
+}
+
 .page-header-left h2 {
     margin: 0;
     font-size: 1.15rem;
@@ -3094,7 +3104,7 @@ select.form-control {
     border: 1px solid #27272a;
     border-radius: 12px;
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9), 0 0 25px rgba(59, 130, 246, 0.1);
-    z-index: 1000;
+    z-index: 999999 !important;
     display: flex;
     flex-direction: column;
     overflow: hidden;
