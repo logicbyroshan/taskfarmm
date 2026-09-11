@@ -1,6 +1,14 @@
+<div align="center">
+
 # 🚀 TaskFarmm Setup & Production Deployment Guide
 
-This guide covers local environment setup, configuration parameters, and step-by-step production deployment instructions for **TaskFarmm**.
+### *Quickstart, Configuration Parameters, Cloud & VPS Deployment*
+
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Django](https://img.shields.io/badge/Django-5.2+-092E20?style=flat-square&logo=django&logoColor=white)](https://www.djangoproject.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-f59e0b.svg?style=flat-square)](LICENSE)
+
+</div>
 
 ---
 
