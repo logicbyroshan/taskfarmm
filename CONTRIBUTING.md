@@ -1,18 +1,30 @@
+<div align="center">
+
 # 🤝 Contributing to TaskFarmm
+
+### *Guidelines, Community Standards, and Pull Request Process*
+
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
+[![Code of Conduct](https://img.shields.io/badge/Contributor-Covenant-blue.svg?style=flat-square)](CODE_OF_CONDUCT.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-f59e0b.svg?style=flat-square)](LICENSE)
+
+</div>
+
+---
 
 Thank you for your interest in contributing to **TaskFarmm**! We love pull requests, feature suggestions, bug reports, and code reviews from the community.
 
 ---
 
 ## 📜 Table of Contents
-1. [Code of Conduct](#code-of-conduct)
-2. [How Can I Contribute?](#how-can-i-contribute)
-   - [Reporting Bugs](#reporting-bugs)
-   - [Suggesting Enhancements](#suggesting-enhancements)
-   - [Pull Requests](#pull-requests)
-3. [Local Development Setup](#local-development-setup)
-4. [Coding & Design Standards](#coding--design-standards)
-5. [Git Commit Guidelines](#git-commit-guidelines)
+1. [Code of Conduct](#-code-of-conduct)
+2. [How Can I Contribute?](#-how-can-i-contribute)
+   - [Reporting Bugs](#-reporting-bugs)
+   - [Suggesting Enhancements](#-suggesting-enhancements)
+   - [Pull Requests](#-pull-requests-prs)
+3. [Local Development Setup](#-local-development-setup)
+4. [Coding & Design Standards](#-coding--design-standards)
+5. [Git Commit Guidelines](#-git-commit-guidelines)
 
 ---
 

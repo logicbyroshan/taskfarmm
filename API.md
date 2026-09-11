@@ -241,6 +241,35 @@ Authorization: Bearer <your_access_token>
 
 ---
 
+## 🎙️ Voice Automation API (`/api/v1/voice/`)
+
+### 1. Parse Natural Voice Input
+- **Endpoint**: `POST /api/v1/voice/parse/`
+- **Description**: Parses spoken or transcribed natural language text (English or Hinglish) into structured task attributes.
+- **Request Body**:
+```json
+{
+  "speech_text": "Kal tak backend API integration complete krna hai with high priority",
+  "project_id": 2
+}
+```
+- **Response**:
+```json
+{
+  "parsed": {
+    "title": "Backend API integration complete karna",
+    "priority": "high",
+    "due_date": "2026-09-12",
+    "category_id": 2,
+    "tags": ["backend", "api"]
+  },
+  "raw_transcript": "Kal tak backend API integration complete krna hai with high priority",
+  "normalized_transcript": "Kal tak backend API integration complete karna hai with high priority"
+}
+```
+
+---
+
 ## 👤 User Profile API (`/api/v1/profile/`)
 
 - **GET /api/v1/profile/**: Retrieve current user profile settings.
@@ -272,4 +301,6 @@ Authorization: Bearer <your_access_token>
 | `POST` | `/api/ai/suggest/` | AI Action Plan assistant |
 | `POST` | `/api/ai/create-task/` | Instant task creation from AI |
 | `POST` | `/api/ai/create-project/` | Instant project + tasks batch creation |
+| `POST` | `/api/voice/process/` | Process live microphone speech stream / command |
+
 
