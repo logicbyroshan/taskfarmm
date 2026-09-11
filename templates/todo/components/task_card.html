@@ -1,7 +1,9 @@
 <article class="task-card task-card-modern {% if task.status == 'completed' %}is-completed{% endif %}" 
          id="task-card-{{ task.id }}" 
          data-task-id="{{ task.id }}"
-         x-data="{ dropdownOpen: false }">
+         x-data="{ dropdownOpen: false }"
+         :class="{ 'has-open-dropdown': dropdownOpen }"
+         :style="dropdownOpen ? 'z-index: 1000 !important; overflow: visible !important;' : ''">
     <div class="task-card-top" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
         <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0;">
             <!-- 1-Click HTMX Status Checkbox Toggle -->
@@ -27,7 +29,7 @@
         </div>
 
         <!-- 3-Dot Options Dropdown (Alpine.js) -->
-        <div class="task-menu-container" style="position: relative;" @click.outside="dropdownOpen = false">
+        <div class="task-menu-container" style="position: relative; z-index: 30;" @click.outside="dropdownOpen = false">
             <button class="task-menu-btn" 
                     type="button" 
                     @click.stop="dropdownOpen = !dropdownOpen" 
@@ -42,7 +44,7 @@
                  x-transition:leave="transition ease-in duration-75"
                  x-transition:leave-start="opacity-100 scale-100"
                  x-transition:leave-end="opacity-0 scale-95"
-                 style="display: none; position: absolute; right: 0; top: calc(100% + 4px); background: #000000; border: 1px solid #27272a; border-radius: 8px; padding: 4px; z-index: 99999; min-width: 140px; box-shadow: 0 10px 30px rgba(0,0,0,0.9);">
+                 style="display: none; position: absolute; right: 0; top: calc(100% + 4px); background: #000000; border: 1px solid #27272a; border-radius: 8px; padding: 4px; z-index: 999999; min-width: 140px; box-shadow: 0 10px 30px rgba(0,0,0,0.9);">
                 <button type="button" 
                         class="dropdown-item" 
                         @click="dropdownOpen = false; window.openEditTaskModal({{ task.id }})" 

@@ -3,7 +3,9 @@
          style="--category-color: {{ category.color }}; cursor: pointer;" 
          onclick="openEditProjectModal({{ category.id }}, '{{ category.name|escapejs }}', '{{ category.color|default:'#3b82f6'|escapejs }}', '{{ category.board_template|default:'smart'|escapejs }}', '{{ category.description|default:''|escapejs }}')"
          title="Click to view & edit project details"
-         x-data="{ dropdownOpen: false }">
+         x-data="{ dropdownOpen: false }"
+         :class="{ 'has-open-dropdown': dropdownOpen }"
+         :style="dropdownOpen ? 'z-index: 1000 !important; overflow: visible !important;' : ''">
     
     <!-- Card Color Accent Top Bar -->
     <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, {{ category.color }}, {{ category.color }}60); border-top-left-radius: 13px; border-top-right-radius: 13px; z-index: 2;"></div>
@@ -18,7 +20,7 @@
             <div class="category-info" style="flex: 1; min-width: 0;">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
                     <h3 class="category-name" style="margin: 0; font-size: 1.05rem; font-weight: 700; color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="{{ category.name }}">{{ category.name }}</h3>
-                    <div class="category-menu-wrapper" style="position: relative; flex-shrink: 0;" @click.outside="dropdownOpen = false" onclick="event.stopPropagation();">
+                    <div class="category-menu-wrapper" style="position: relative; flex-shrink: 0; z-index: 30;" @click.outside="dropdownOpen = false" onclick="event.stopPropagation();">
                         <button class="task-menu-btn category-options-btn" 
                                 type="button" 
                                 @click.stop="dropdownOpen = !dropdownOpen" 
@@ -34,7 +36,7 @@
                              x-transition:leave="transition ease-in duration-75"
                              x-transition:leave-start="opacity-100 scale-100"
                              x-transition:leave-end="opacity-0 scale-95"
-                             style="display: none; position: absolute; right: 0; top: calc(100% + 6px); background: #09090b; border: 1px solid #27272a; border-radius: 8px; padding: 5px; z-index: 99999; min-width: 160px; box-shadow: 0 16px 36px rgba(0,0,0,0.95);">
+                             style="display: none; position: absolute; right: 0; top: calc(100% + 6px); background: #09090b; border: 1px solid #27272a; border-radius: 8px; padding: 5px; z-index: 999999; min-width: 160px; box-shadow: 0 16px 36px rgba(0,0,0,0.95);">
                             <a href="{% url 'manage_kanban' %}?project={{ category.id }}" onclick="event.stopPropagation();" class="dropdown-item" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; font-size: 0.825rem; color: #60a5fa; border-radius: 6px; text-decoration: none;">
                                 <i class="fas fa-columns"></i> View Kanban
                             </a>

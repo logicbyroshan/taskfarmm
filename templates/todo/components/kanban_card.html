@@ -3,12 +3,14 @@
      data-task-id="{{ task.id }}" 
      draggable="true" 
      ondragstart="handleDragStart(event)"
-     x-data="{ menuOpen: false }">
+     x-data="{ menuOpen: false }"
+     :class="{ 'has-open-dropdown': menuOpen }"
+     :style="menuOpen ? 'z-index: 1000 !important; position: relative !important; overflow: visible !important;' : ''">
     <div class="kanban-card-top" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;">
         <span class="status {{ task.status }}">
             {% if task.status == 'completed' %}DONE{% elif task.status == 'not-started' %}TO DO{% else %}{{ task.status|upper }}{% endif %}
         </span>
-        <div style="position: relative;" @click.outside="menuOpen = false">
+        <div style="position: relative; z-index: 30;" @click.outside="menuOpen = false">
             <button class="kanban-card-menu-btn" 
                     type="button" 
                     @click.stop="menuOpen = !menuOpen" 
@@ -24,7 +26,7 @@
                  x-transition:leave="transition ease-in duration-75"
                  x-transition:leave-start="opacity-100 scale-100"
                  x-transition:leave-end="opacity-0 scale-95"
-                 style="display: none; position: absolute; right: 0; top: calc(100% + 4px); background: #000000; border: 1px solid #27272a; border-radius: 8px; padding: 4px; z-index: 99999; min-width: 130px; box-shadow: 0 10px 30px rgba(0,0,0,0.9);">
+                 style="display: none; position: absolute; right: 0; top: calc(100% + 4px); background: #000000; border: 1px solid #27272a; border-radius: 8px; padding: 4px; z-index: 999999; min-width: 130px; box-shadow: 0 10px 30px rgba(0,0,0,0.9);">
                 <button type="button" 
                         class="dropdown-item" 
                         @click="menuOpen = false; window.openEditTaskModal({{ task.id }})" 

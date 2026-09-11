@@ -287,13 +287,19 @@ a:focus-visible {
 /* ==============================================================================
    GLOBAL DROPDOWN STACKING & Z-INDEX SYSTEM
    ============================================================================== */
+.navbar {
+    position: relative;
+    z-index: 1100;
+}
+
 .custom-select-wrapper {
     position: relative;
     display: inline-block;
-    z-index: 20;
+    z-index: 50;
 }
 
-.custom-select-wrapper.open {
+.custom-select-wrapper.open,
+.custom-select-wrapper:focus-within {
     z-index: 99999 !important;
 }
 
@@ -303,14 +309,68 @@ a:focus-visible {
     border: 1px solid #2a2a2a !important;
 }
 
-.page-header-bar, .filter-bar, .kanban-header {
+.page-header-bar, .filter-bar, .kanban-header, .kanban-header-bar {
     position: relative;
-    z-index: 40;
+    z-index: 50;
 }
 
 .page-header-bar:has(.custom-select-wrapper.open),
-.filter-bar:has(.custom-select-wrapper.open) {
+.filter-bar:has(.custom-select-wrapper.open),
+.page-header-bar:focus-within,
+.filter-bar:focus-within,
+.page-header-bar.has-open-dropdown,
+.filter-bar.has-open-dropdown {
     z-index: 1000 !important;
+}
+
+/* Category & Task Card Dropdown Overflow & Stacking Fixes */
+.category-card {
+    position: relative;
+    overflow: visible !important;
+    z-index: 1;
+}
+
+.category-card:hover,
+.category-card:focus-within {
+    z-index: 25;
+}
+
+.category-card.has-open-dropdown,
+.category-card:has(.category-options-dropdown:not([style*="display: none"])) {
+    z-index: 1000 !important;
+}
+
+.task-card,
+.task-card-modern,
+.kanban-card {
+    position: relative;
+    overflow: visible;
+}
+
+.task-card:hover,
+.task-card-modern:hover,
+.kanban-card:hover {
+    z-index: 20;
+}
+
+.task-card.has-open-dropdown,
+.task-card-modern.has-open-dropdown,
+.kanban-card.has-open-dropdown {
+    z-index: 1000 !important;
+}
+
+.category-menu-wrapper,
+.task-menu-container {
+    position: relative;
+    z-index: 30;
+}
+
+.category-options-dropdown,
+.task-dropdown-menu,
+.kanban-dropdown-menu,
+.notification-dropdown,
+#global-search-dropdown {
+    z-index: 999999 !important;
 }
 
 /* Ambient Dynamic Wave Background Canvas */
